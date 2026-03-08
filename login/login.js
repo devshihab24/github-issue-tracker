@@ -7,7 +7,7 @@ document.getElementById("login-btn").addEventListener("click", (e) => {
     userName.value.toLowerCase() == "admin" &&
     password.value.toLowerCase() == "admin123"
   ) {
-    window.location.assign("../home/home.html")
+    window.location.assign("/home/home.html")
     userName.value = "";
     password.value = "";
   } else {
