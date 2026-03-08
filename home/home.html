@@ -58,15 +58,15 @@
     <main class="w-10/12 mx-auto py-5 min-h-[100vh]">
       <section
         id="category-btn-container"
-        class="flex gap-5 bg-white rounded-md shadow-md p-5"
+        class="flex gap-3 justify-center md:justify-start sm:gap-5 bg-white rounded-md shadow-md p-5"
       >
-        <button class="btn btn-primary category-btn all">All</button
-        ><button class="btn category-btn" id="open">Open</button
-        ><button class="btn category-btn" id="colse">Closed</button>
+        <button class="btn btn-primary category-btn all" id="all" onclick="loadCategoryIssues('all')">All</button
+        ><button class="btn category-btn" id="open" onclick="loadCategoryIssues('open')">Open</button
+        ><button class="btn category-btn" id="colsed" onclick="loadCategoryIssues('closed')">Closed</button>
       </section>
       <section id="cards-section" class="">
         <div
-          class="card-header flex justify-between items-center shadow-sm my-5 p-5 bg-white rounded-md"
+          class="card-header flex justify-between items-center shadow-sm my-5 p-5 bg-white rounded-md gap-4"
         >
           <div class="flex justify-between items-center gap-2">
             <img
@@ -89,7 +89,7 @@
           </div>
         </div>
         <!-- cards container -->
-        <div id="cards-container" class="grid grid-cols-4 gap-5"></div>
+        <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5"></div>
       </section>
     </main>
 
