@@ -3,6 +3,10 @@
 * {
   font-family: "Geist", sans-serif;
 }
+
+body, html{
+    scroll-behavior: smooth;
+}
 .heading-color {
   color: #1f2936;
 }
@@ -53,6 +57,11 @@
 }
 .issue-card:hover{
     transform: translateY(-6px);
+}
+.badge{
+    border: 1px solid;
+    border-radius: 999px;
+    display: inline-block;
 }
 @media screen and (max-width: 620px) {
   .btn {

@@ -160,13 +160,14 @@ function hideLoader() {
 document.getElementById("search-btn").addEventListener("click", async () => {
   const searchInput = document.getElementById("search-input").value;
   const searchValue = searchInput.trim().toLowerCase();
-
+    displayLoader()
   const res = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
   const data = await res.json();
 //   console.log(data.data);
   const filteredData = data.data.filter(item=>item.title.trim().toLowerCase().includes(searchValue))
+  hideLoader()
   displayIssuesData(filteredData);
 });
 
