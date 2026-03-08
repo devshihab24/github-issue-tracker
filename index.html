@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Issue Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="login/login.css" />
+
+  </head>
+  <body>
+    <div class="h-[100vh] flex justify-center items-center">
+      <div class="bg-base-100 w-full max-w-sm shrink-0 shadow-2xl pt-5 rounded-md">
+        <div class="flex flex-col justify-center items-center gap-3 text-center">
+          <img src="assets/github-logo.png" alt="" />
+          <div>
+            <h3 class="text-2xl font-semibold heading-color">GitHub Issues Tracker</h3>
+            <p class="p-color text-sm">Sign in to manage your issues</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <fieldset class="fieldset">
+            <label class="label">Username</label>
+            <input id="login-username" type="text" class="input" placeholder="Enter Username" />
+            <label class="label">Password</label>
+            <input id="login-password" type="password" class="input" placeholder="Enter Password" />
+            <div><a class="link link-hover">Forgot password?</a></div>
+            <button id="login-btn" class="btn btn-primary mt-4">Sign In</button>
+          </fieldset>
+        </div>
+         <div class="divider">OR</div>
+         <div class=" w-[90%] mx-auto text-center py-4 mb-5 rounded-md bg-[#F8FAFC]">
+            <p class="p-color mb-3">Demo Credentials:</p>
+            <p class="text-sm"><span class="text-base font-semibold">Username:</span> admin</p>
+            <p class="text-sm"><span class="text-base font-semibold">Password:</span> admin123</p>
+         </div>
+      </div>
+    </div>
+
+
+    <!-- scripted section -->
+     <script src="login/login.js"></script>
+  </body>
+</html>
