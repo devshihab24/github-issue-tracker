@@ -1,10 +1,10 @@
 // variable declaration section
 const allCategoryBtns = document.querySelectorAll(".category-btn");
 const cardsContainer = document.getElementById("cards-container");
-const loader = document.getElementById("loader")
+const loader = document.getElementById("loader");
 let issueCount = document.getElementById("issue-count");
-const issueDetailsModal = document.getElementById('issueDetailsModal')
-const modalDetail = document.getElementById('detail')
+const issueDetailsModal = document.getElementById("issueDetailsModal");
+const modalDetail = document.getElementById("detail");
 let badgeKind = null;
 
 // active button functionality
@@ -25,18 +25,18 @@ function removeActiveClass() {
 // fetch or load data from api
 
 async function loadIssues() {
-    displayLoader()
+  displayLoader();
   const res = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
   const data = await res.json();
-  hideLoader()
+  hideLoader();
   displayIssuesData(data.data);
 }
 
 // load category wise data
 async function loadCategoryIssues(status) {
-    displayLoader()
+  displayLoader();
   const res = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
@@ -45,16 +45,18 @@ async function loadCategoryIssues(status) {
   if (status !== "all") {
     categoryData = data.data.filter((item) => item.status === status);
   }
-  hideLoader()
+  hideLoader();
   displayIssuesData(categoryData);
 }
 // load data based on id and show data on modal
 async function loadDetails(id) {
-    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
-    const data = await res.json()
-    // console.log(data.data);
-    badgeKind = badgeType(data.data)
-    modalDetail.innerHTML = `
+  const res = await fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`,
+  );
+  const data = await res.json();
+  // console.log(data.data);
+  badgeKind = badgeType(data.data);
+  modalDetail.innerHTML = `
               <h2 class="text-xl md:text-2xl heading-color font-bold">
                 ${data.data.title}
               </h2>
@@ -62,7 +64,7 @@ async function loadDetails(id) {
                 <div class="badge badge-success uppercase text-white">
                   ${data.data.status}
                 </div>
-                <p class="bullet capitalize">Opened by ${data.data.author.split('_').join(" ")}</p>
+                <p class="bullet capitalize">Opened by ${data.data.author.split("_").join(" ")}</p>
                 <p class="bullet">${data.data.createdAt.split("T")[0]}</p>
               </div>
               <div class="flex gap-5">
@@ -75,7 +77,7 @@ async function loadDetails(id) {
                 <div class="w-1/2 p-5">
                   <p class="p-color">Assignee:</p>
                   <h5 class="text-lg font-semibold heading-color capitalize">
-                    ${data.data.author.split('_').join(" ")}
+                    ${data.data.author.split("_").join(" ")}
                   </h5>
                 </div>
                 <div class="w-1/2 p-5">
@@ -86,9 +88,9 @@ async function loadDetails(id) {
                 </div>
               </div>
     
-    `
+    `;
 
-    issueDetailsModal.showModal()
+  issueDetailsModal.showModal();
 }
 
 // display loaded data on ui
@@ -99,11 +101,11 @@ const displayIssuesData = (issues) => {
     // console.log(issue);
     const div = document.createElement("div");
     // display modal functionality
-    div.addEventListener('click', ()=>{
-        loadDetails(issue.id)
-    })
+    div.addEventListener("click", () => {
+      loadDetails(issue.id);
+    });
     div.className = `issue-card hover:shadow-2xl bg-white cursor-pointer shadow-md ${issue.status == "open" ? "border-[#00A96E] border-t-4 border-t-[#00A96E]" : "border-[#A855F7] border-t-4 border-t-[#A855F7]"} p-4 rounded-md space-y-3`;
-    badgeKind = badgeType(issue)
+    badgeKind = badgeType(issue);
     div.innerHTML = `
             <div class="flex justify-between items-center">
               <img src="../assets/Open-Status.png" alt="" />
@@ -130,12 +132,10 @@ const displayIssuesData = (issues) => {
     cardsContainer.append(div);
   });
 };
-function badgeType(issue){
-    
-    if (issue.priority.toLowerCase() == "low") return "badge-primary";
-    else if (issue.priority.toLowerCase() == "medium")
-      return "badge-warning";
-    else return "badge-error";
+function badgeType(issue) {
+  if (issue.priority.toLowerCase() == "low") return "badge-primary";
+  else if (issue.priority.toLowerCase() == "medium") return "badge-warning";
+  else return "badge-error";
 }
 
 function labelBadge(labels) {
@@ -147,15 +147,27 @@ function labelBadge(labels) {
 }
 
 // loader functionality
-function displayLoader(){
-    loader.classList.remove('hidden')
-    cardsContainer.classList.add('hidden')
+function displayLoader() {
+  loader.classList.remove("hidden");
+  cardsContainer.classList.add("hidden");
 }
-function hideLoader(){
-    loader.classList.add('hidden')
-    cardsContainer.classList.remove('hidden')
+function hideLoader() {
+  loader.classList.add("hidden");
+  cardsContainer.classList.remove("hidden");
 }
 
 // searching functionality
+document.getElementById("search-btn").addEventListener("click", async () => {
+  const searchInput = document.getElementById("search-input").value;
+  const searchValue = searchInput.trim().toLowerCase();
+
+  const res = await fetch(
+    "https://phi-lab-server.vercel.app/api/v1/lab/issues",
+  );
+  const data = await res.json();
+//   console.log(data.data);
+  const filteredData = data.data.filter(item=>item.title.trim().toLowerCase().includes(searchValue))
+  displayIssuesData(filteredData);
+});
 
 loadIssues();
