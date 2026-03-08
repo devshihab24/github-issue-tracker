@@ -34,7 +34,26 @@
 .indicator:nth-child(2)::before {
   background: #a855f7;
 }
+.bullet{
+    position: relative;
+    color: #64748b;
+}
+.bullet::before{
+    content: "•";
+   font-size: 24px;
+   color: gray;
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
+.issue-card{
+    transition: all 0.4s linear 0.2s;
+}
+.issue-card:hover{
+    transform: translateY(-6px);
+}
 @media screen and (max-width: 620px) {
   .btn {
     width: 80px;
