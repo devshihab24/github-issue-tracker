@@ -55,7 +55,7 @@
         </div>
       </nav>
     </header>
-    <main class="w-9/12 mx-auto py-5 min-h-[100vh]">
+    <main class="w-10/12 mx-auto py-5 min-h-[100vh]">
       <section
         id="category-btn-container"
         class="flex gap-5 bg-white rounded-md shadow-md p-5"
@@ -75,7 +75,9 @@
               class="h-10 w-10 p-1 rounded-full bg-gray-200"
             />
             <div>
-              <h5 class="heading-color text-lg font-semibold">50 Issues</h5>
+              <h5 id="issue-count" class="heading-color text-lg font-semibold">
+                50 Issues
+              </h5>
               <p class="p-color text-sm">
                 Track and manage your project issues
               </p>
@@ -87,32 +89,7 @@
           </div>
         </div>
         <!-- cards container -->
-        <div id="cards-container" class="grid grid-cols-4 gap-3">
-          <div
-            class="issue-card shadow-md border-t-4 border-t-[#00A96E] p-4 rounded-md space-y-3"
-          >
-            <div class="flex justify-between items-center border">
-              <img src="../assets/Open-Status.png" alt="" />
-              <div class="badge badge-soft badge-warning">Warning</div>
-            </div>
-            <div class="border space-y-2">
-              <h3 class="text-xl font-semibold heading-color">
-                Fix navigation menu on mobile devices
-              </h3>
-              <p class="p-color line-clamp-2">
-                The navigation menu doesn't collapse properly on mobile devices
-              </p>
-              <div>
-                <div class="badge badge-soft badge-error">Error</div>
-                <div class="badge badge-soft badge-warning">Warning</div>
-              </div>
-              <div>
-                <p>#1by john_doe</p>
-                <p>1/15/2024</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="cards-container" class="grid grid-cols-4 gap-5"></div>
       </section>
     </main>
 
