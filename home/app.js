@@ -25,16 +25,18 @@ function removeActiveClass() {
 // fetch or load data from api
 
 async function loadIssues() {
+    displayLoader()
   const res = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
   const data = await res.json();
+  hideLoader()
   displayIssuesData(data.data);
 }
 
 // load category wise data
 async function loadCategoryIssues(status) {
-
+    displayLoader()
   const res = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
@@ -43,6 +45,7 @@ async function loadCategoryIssues(status) {
   if (status !== "all") {
     categoryData = data.data.filter((item) => item.status === status);
   }
+  hideLoader()
   displayIssuesData(categoryData);
 }
 // load data based on id and show data on modal
@@ -144,5 +147,15 @@ function labelBadge(labels) {
 }
 
 // loader functionality
+function displayLoader(){
+    loader.classList.remove('hidden')
+    cardsContainer.classList.add('hidden')
+}
+function hideLoader(){
+    loader.classList.add('hidden')
+    cardsContainer.classList.remove('hidden')
+}
+
+// searching functionality
 
 loadIssues();
