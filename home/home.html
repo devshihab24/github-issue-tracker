@@ -20,6 +20,40 @@
     <link rel="stylesheet" href="home.css" />
   </head>
   <body>
-    <h1>Hello from homePage</h1>
+    <header class="w-11/12 mx-auto py-5">
+      <nav class="flex justify-between items-center">
+        <div class="flex justify-center items-center gap-1">
+          <img src="../assets/github-logo.png" alt="github" class="w-10" />
+          <h1 class="text-2xl font-semibold heading-color">
+            GitHub Issues Tracker
+          </h1>
+        </div>
+        <div class="join">
+          <div>
+            <label class="input">
+              <svg
+                class="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2.5"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </g>
+              </svg>
+              <input type="search" required placeholder="Search issues..." />
+            </label>
+            <div class="validator-hint hidden">Enter valid email address</div>
+          </div>
+          <button class="btn btn-primary join-item">Search</button>
+        </div>
+      </nav>
+    </header>
   </body>
 </html>

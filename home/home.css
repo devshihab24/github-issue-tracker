@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
+* {
+  font-family: "Geist", sans-serif;
+}
+.heading-color{
+    color: #1f2936;
+}
+.p-color{
+    color: #64748B;
+}
