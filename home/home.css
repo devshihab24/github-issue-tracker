@@ -9,3 +9,28 @@
 .p-color{
     color: #64748B;
 }
+.btn{
+    width: 100px;
+}
+.indicator{
+    position: relative;
+    color: #64748B;
+    font-weight: 600;
+}
+.indicator::before{
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 50%;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.indicator:nth-child(1)::before{
+    background: #00A96E;
+}
+.indicator:nth-child(2)::before{
+    background: #A855F7;
+}
